@@ -1,0 +1,58 @@
+<app-admin-navbar></app-admin-navbar>
+all company
+<div class="job_listing_area plus_padding">
+  <div class="container">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="job_lists m-0">
+          <div class="row">
+
+            <div class="col-lg-12 col-md-12"
+              *ngFor="let company of companyModel?.slice()?.reverse() | filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+              <div class="single_jobs white-bg d-flex justify-content-between">
+                <div class="jobs_left d-flex align-items-center">
+                  <div class="thumb">
+                    <img style="width: 50px; height: 50px;" src="http://localhost:3000//{{company.image}}" alt="">
+                  </div>
+
+                  <div class="jobs_conetent">
+                    <a>
+                      <h4>{{company.name}}</h4>
+                    </a>
+
+                    <div class="links_locat d-flex align-items-center">
+                      <div class="location">
+                        <p> <i class="fa fa-envelope"></i><a>{{company.email}}</a> </p>
+                      </div>
+                      <div class="location">
+                        <p> <i class="fa fa-map-marker"></i>{{company.address}}</p>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+                <div class="jobs_right">
+                  <div class="apply_now">
+                    <div class="apply_now">
+                      <a  class="boxed-btn3" style="margin-right: 26px;" (click)=" goProfile(company)">More Details</a>
+                      <a class="heart_mark"> <i class="fa fa-trash" (click)="deleteUser(company)"></i> </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <pagination-controls (pageChange)="p = $event"style="text-align: center;"></pagination-controls>
+  </div>
+</div>
+<app-footer></app-footer>

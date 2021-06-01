@@ -1,0 +1,68 @@
+ <app-admin-navbar></app-admin-navbar>
+add users
+<div class="hero-wrap hero-wrap-2" style=" background-position: 50% 0px;" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-start">
+      <div class="col-md-12 ftco-animate text-center mb-5 fadeInUp ftco-animated">
+        <p class="breadcrumbs mb-0"><span class="mr-3"><a >Home <i class="ion-ios-arrow-forward"></i></a></span> </p>
+        <h1 class="mb-3 bread">Add User</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+       
+          <div class="col-md-12 col-lg-8 mb-5">
+            <form #userForm="ngForm" method="POST" novalidate class="p-5 bg-white">
+              <div class="form-group">
+                <label for="uname">Username:</label>
+                <input id="User_name" type="text" class="form-control" [class.is-invalid]="Username.invalid && Username.touched" #Username="ngModel" required
+                [(ngModel)]="userModel.name" name="userName">
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label for="uname">Email:</label>
+                <input  id="email" type="email" class="form-control" [class.is-invalid]="email.invalid && email.touched" #email="ngModel"
+                required [(ngModel)]="userModel.email" name="mail">
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input id="password" type="password" class="form-control" [class.is-invalid]="password.invalid && password.touched" #password="ngModel" required
+                [(ngModel)]="userModel.password" name="password">
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="mb-3" >
+                <label>Type :</label>
+                
+                <div style="display: flex;">
+                  <div class="form-check">
+                    <input type="radio" value="company" class="form-check-input" name="TtypeSelection"  ngForm required [(ngModel)]="userModel.type" #select="ngModel"/>
+                    <label class="form-check-label">Company</label>
+                   </div>
+                   <div class="form-check">
+                    <input type="radio" value="student" class="formcheck-input" name="TtypeSelection" ngForm required [(ngModel)]="userModel.type" #select="ngModel"/>
+                    <label class="form-check-label">Student</label>
+                   </div>
+                </div>
+                <strong class="text-danger" [class.d-none]="test">{{error}}</strong>
+
+               </div>
+
+              <button type="submit" name="action" [disabled]="userForm.form.invalid || topicHasErr" class="btn btn-success" (click)="adduser()">Submit</button>
+            </form>            
+          </div>
+
+         <!-- {{userModel | json}} -->
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+

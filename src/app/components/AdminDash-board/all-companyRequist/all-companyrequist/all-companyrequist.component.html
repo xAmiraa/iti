@@ -1,0 +1,52 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="job_listing_area plus_padding">
+  <div class="container">
+    all company requist
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="job_lists m-0">
+          <div class="row">
+
+            <div class="col-lg-12 col-md-12"
+              *ngFor="let companyrequist of companyrequists?.slice()?.reverse() | filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+              <div class="single_jobs white-bg d-flex justify-content-between">
+                <div class="jobs_left d-flex align-items-center">
+                  <div class="jobs_conetent">
+                    <a>
+                      <h4>{{companyrequist.name}}</h4>
+                    </a>
+
+                    <div class="links_locat d-flex align-items-center">
+                      <div class="location">
+                        <p> <i class="fa fa-envelope"></i><a>{{companyrequist.email}}</a> </p>
+                      </div>
+                      </div>
+                    <div class="links_locat d-flex align-items-center">
+                      <div class="location">
+                        <p> <i class="far fa-comment"></i>{{companyrequist.massege}}</p>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+                <div class="jobs_right">
+                  <div class="apply_now">
+                    <div class="apply_now">
+                      <!-- <a  class="boxed-btn3" style="margin-right: 26px;" (click)=" goProfile(company)">More Details</a> -->
+                      <a class="heart_mark" (click)="deleteCompanyreq(companyrequist)"> <i class="fa fa-trash" ></i> </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+<app-footer></app-footer>

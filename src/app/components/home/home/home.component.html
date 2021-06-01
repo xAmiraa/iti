@@ -1,0 +1,120 @@
+
+<app-navbar></app-navbar>
+home
+<div class="backg">
+
+<div class="container-fluid">
+        <div class="row" >
+          <br>
+          <br>
+          <br>
+  <br><br>
+           
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+           
+          
+                      <div class="card hovercard">
+                          <div class="cardheader">
+          
+                          </div>
+                          <div class="avatar">
+                              <img alt="" src="http://localhost:3000//{{prostudent.image}}">
+                          </div>
+                          <div class="info">
+                              <div class="title">
+                                  <a target="_blank" >{{prostudent.name}}</a>
+                              </div>
+                              <div class="desc">{{prostudent.title}}</div>
+                              <div class="desc">{{prostudent.Bio}}</div>
+                          </div>
+                          <div class="bottom" >
+                              <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/MCIT_News/status/1169503198492659712" target="_blank">
+                                  <i class="fa fa-twitter"></i>
+                              </a>
+                             
+                              <a class="btn btn-primary btn-sm" rel="publisher"
+                                 href="https://www.facebook.com/ITI-Qena-1050989321660788/" target="_blank" >
+                                  <i class="fa fa-facebook"></i>
+                              </a>
+                            
+                          </div>
+                      </div>
+        
+           </div> 
+
+         
+             <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+            </div>
+    
+
+                <div class="card gedf-card"  *ngFor="let job of jobs?.slice()?.reverse() | filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+                  <div class="card-header">
+                      <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="mr-2">
+                                  <img class="rounded-circle" width="45" src="../../../../assets/images/ITI.png" alt="">
+                              </div>
+                              <div class="ml-2">
+                                  <div class="h5 m-0">{{job.company}}</div>
+                                  <div class="h7 text-muted">{{job.type}}</div>
+                              </div>
+                          </div>
+                          <div>
+                              <div class="dropdown">
+                                  <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <i class="fa fa-ellipsis-h"></i>
+                                  </button>
+                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                      <a class="dropdown-item" (click)="savedJob(job)">Save</a>
+                                      <a class="dropdown-item" (click)="goDetails(job)" >Detials</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+                  <div class="card-body">
+                      <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{job.time}}</div>
+                      <a class="card-link">
+                          <h5 class="card-title">{{job.title }}</h5>
+                      </a>
+
+                      <p class="card-text">
+                        {{job.desc}}
+                      </p>
+                  </div>
+                  <div class="card-footer">
+                      <a  class="card-link" (click)="savedJob(job)"><i class="fa fa-gittip"></i> Save</a>
+                      <a (click)="goDetails(job)" class="card-link" style="cursor: pointer;"><i class="fa fa-mail-forward"></i> Details</a>
+                  </div>
+              </div>
+                
+           
+             </div>
+             
+             <div>
+               
+             </div>
+             <div class="col-sm-3" >
+                <h5 style="margin-left: 15px; color:purple;">UpComing Events</h5>
+               <div class="card-body shadow" *ngFor="let event of envents">
+                 
+                <h3>
+                  {{event.titel}}
+                </h3>
+                <p class="card-text" style="font-weight: bold;"> {{event.title}}</p>
+                <p class="card-text"> {{event.place}}</p>
+                <p class="card-text" style="color: plum;"> {{event.date}}</p>
+        
+                </div>
+             </div>
+         
+        </div>
+        <pagination-controls (pageChange)="p = $event" style="text-align: center;"></pagination-controls>
+       </div>
+      </div>
+      <app-footer></app-footer>

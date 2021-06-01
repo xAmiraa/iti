@@ -1,0 +1,27 @@
+ read more
+ <div class="mesgs">
+  <div>
+    <div class="msg_history">
+      <div class="incoming_msg">
+        <div class="received_msg">
+          <div class="received_withd_msg" *ngFor="let message of  messages">
+            <p>{{message.msg}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="type_msg">
+
+    <div class="input_msg_write">
+      <input type="text" required class="write_msg" placeholder="Type a message" [(ngModel)]="msg.msg" />
+      <button type="submit" (click)="sendMsg()" class="msg_send_btn"><i class="fa fa-paper-plane"
+          aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+
+
+</div>
+

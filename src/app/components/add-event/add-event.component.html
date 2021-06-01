@@ -1,0 +1,73 @@
+<app-admin-navbar></app-admin-navbar>
+
+add-event
+<div class="hero-wrap hero-wrap-2" style="background-image: url(&quot;images/bg_1.jpg&quot;); background-position: 50% 0px;" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-start">
+      <div class="col-md-12 ftco-animate text-center mb-5 fadeInUp ftco-animated">
+        <p class="breadcrumbs mb-0"><span class="mr-3"><a>Home <i class="ion-ios-arrow-forward"></i></a></span> </p>
+        <h1 class="mb-3 bread">Add Event</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <span>Company profile</span> -->
+<div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+       
+          <div class="col-md-12 col-lg-8 mb-5">
+            <form #eventForm="ngForm" method="POST" novalidate  class="p-5 bg-white">
+
+              <div class="form-group" >
+                <label for="exampleFormControlInput1">Event Title:</label>
+                <input type="text" class="form-control" name="title" required [class.is-invalid]="title.invalid &&title.touched"
+                  #title="ngModel" [(ngModel)]="eventModel.title" required >
+                  <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Event Date</label>
+                <input class="form-control" type="date" id="date" name="date" #date="ngModel"
+                required [class.is-invalid]="date.invalid &&date.touched" [(ngModel)]="eventModel.date">
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+          
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Event Place</label>
+                <input class="form-control" type="text" id="place" name="place" required [class.is-invalid]="place.invalid &&place.touched" #place="ngModel" [(ngModel)]="eventModel.place">
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+          
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Details</label>
+                <textarea class="form-control" type="text" name="details" required
+                  [class.is-invalid]="detai.invalid &&detai.touched" #detai="ngModel" [(ngModel)]="eventModel.details"
+                  rows="5"></textarea>
+                  <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+          
+              <div>
+                <label for="exampleFormControlInput1">Event Image</label>
+                <input class="form-control"  type="file" (change)="onfileSelected($event)" >
+              </div>
+              <br>
+              <strong class="text-danger" [class.d-none]="test">Please Select Image </strong>
+          
+            <br>
+              <button type="submit"  [disabled]="eventForm.form.invalid" class="btn btn-success" (click)="addEvent()">Submit</button>
+            </form>          
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+
+
+ <app-footer></app-footer>

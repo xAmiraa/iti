@@ -1,0 +1,220 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
+<app-navbar-company></app-navbar-company>
+post job
+<div class="hero-wrap hero-wrap-2"
+  style="background-image: url(&quot;images/bg_1.jpg&quot;); background-position: 50% 0px;"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-start">
+      <div class="col-md-12 ftco-animate text-center mb-5 fadeInUp ftco-animated">
+        <p class="breadcrumbs mb-0"><span class="mr-3"><a>Home <i class="ion-ios-arrow-forward"></i></a></span>
+         
+        <h1 class="mb-3 bread">Post Job</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12 col-lg-8 mb-5">
+        <!-- (ngSubmit)="onSubmit()" -->
+        <form #postForm="ngForm" method="POST" class="p-5 bg-white">
+          <!-- salary -->
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class=" font-weight-bold" for="fullname">Salary</label>
+              <input type="text" required class="form-control" placeholder="eg. 500$" name="salary" required
+                [class.is-invalid]="salary.invalid &&salary.touched"
+                  [(ngModel)]="jobModel.salary"#salary="ngModel" required>
+              <div *ngIf="salary.invalid && (salary.dirty || salary.touched)">
+                <small class="text-danger" *ngIf="salary.errors.required">Must Incloud Title</small>
+              </div>
+              <!-- pattern="^\d{10}$" -->
+            </div>
+          </div>
+          <!-- Job Title -->
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="font-weight-bold" for="fullname">Job Title</label>
+              <input type="text" id="fullname" class="form-control" placeholder="eg. Full Stack Frontend" name="title"
+                required [class.is-invalid]="title.invalid && title.touched" #title="ngModel"
+                [(ngModel)]="jobModel.title">
+              <div *ngIf="title.invalid && (title.dirty || title.touched)">
+                <small class="text-danger" *ngIf="title.errors.required">Must Incloud Title</small>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="font-weight-bold" for="fullname">Experience</label>
+              <input type="text" id="fullname" class="form-control" placeholder="eg. 2 yeers Experience" name="exper"
+                required [class.is-invalid]="exper.invalid && exper.touched" #exper="ngModel"
+                [(ngModel)]="jobModel.exper">
+              <div *ngIf="title.invalid && (title.dirty || title.touched)">
+                <small class="text-danger" *ngIf="title.errors.required">Must Incloud Experience</small>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- Company -->
+          <div class="row form-group mb-5">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="font-weight-bold" for="fullname">Company</label>
+              <input type="text" id="fullname" class="form-control" placeholder="eg. Facebook, Inc." name="company"
+                required [class.is-invalid]="company.invalid &&company.touched" #company="ngModel"
+                [(ngModel)]="jobModel.company" required>
+              <div *ngIf="company.invalid && (company.dirty || company.touched)">
+                <small class="text-danger" *ngIf="company.errors.required">Must Incloud company Name</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Type -->
+          <div class="row form-group">
+            <div class="col-md-12">
+              <h3>Job Type</h3>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label for="option-job-type-1">
+                <input type="radio" value="Full Time" id="option-job-type-1" name="type"
+                  [class.is-invalid]="company.invalid &&company.touched" #type="ngModel" [(ngModel)]="jobModel.type"
+                  required> Full Time
+              </label>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label for="option-job-type-2">
+                <input type="radio" value="Part Time" id="option-job-type-2" name="type" [(ngModel)]="jobModel.type"
+                  #type="ngModel"> Part Time
+              </label>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label for="option-job-type-3">
+                <input type="radio" value="Freelance" id="option-job-type-3" name="type" [(ngModel)]="jobModel.type"
+                  #type="ngModel"> Freelance
+              </label></div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label for="option-job-type-4">
+                <input type="radio" value="Internship" id="option-job-type-4" name="type" [(ngModel)]="jobModel.type"
+                  #type="ngModel"> Internship
+              </label>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label for="option-job-type-4">
+                <input type="radio" value="Termporary" id="option-job-type-4" name="type" [(ngModel)]="jobModel.type"
+                  #type="ngModel"> Termporary
+              </label>
+            </div>
+
+          </div>
+
+          <!-- location -->
+          <div class="row form-group mb-4">
+            <div class="col-md-12">
+              <h3>Location</h3>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <input type="text" class="form-control" placeholder="New York City" name="location" required
+                [class.is-invalid]="location.invalid &&location.touched" #location="ngModel"
+                [(ngModel)]="jobModel.location" required>
+              <div *ngIf="location.invalid && (location.dirty || location.touched)">
+                <small class="text-danger" *ngIf="location.errors.required">Must Choose one</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Description -->
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <h3>Job Description</h3>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <textarea name="" class="form-control" id="" cols="30" rows="5"
+                placeholder="eg. Job Description for this job" name="desc" required
+                [class.is-invalid]="desc.invalid &&desc.touched" #desc="ngModel" [(ngModel)]="jobModel.desc"
+                required></textarea>
+              <div *ngIf="desc.invalid && (desc.dirty || desc.touched)">
+                <small class="text-danger" *ngIf="desc.errors.required">Must Set Job Description</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Responsibility -->
+          <div class="row form-group">
+            <div class="col-md-12">
+              <h3>Responsibility</h3>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <textarea name="" class="form-control" id="" cols="30" rows="5"
+                placeholder="eg. Responsibility should do " name="respons" required
+                [class.is-invalid]="respons.invalid &&respons.touched" #respons="ngModel"
+                [(ngModel)]="jobModel.respons"></textarea>
+            </div>
+          </div>
+
+          <!-- Qualifications -->
+          <div class="row form-group">
+            <div class="col-md-12">
+              <h3>Qualifications</h3>
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <textarea name="" class="form-control" id="" cols="30" rows="5" placeholder="eg. write Qualifications"
+                name="qual" required [class.is-invalid]="qual.invalid &&qual.touched" #qual="ngModel"
+                [(ngModel)]="jobModel.qual"></textarea>
+              <div *ngIf="qual.invalid && (qual.dirty || qual.touched)">
+                <small class="text-danger" *ngIf="qual.errors.required">Must set Qualifications </small>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <button type="submit" [disabled]="postForm.form.invalid" 
+              class="btn btn-primary  py-2 px-5"(click)="postJob()">POST JOB</button>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-4 mb-3 bg-white">
+          <h3 class="h5 text-black mb-3">Contact Info about Company</h3>
+          <p class="mb-0 font-weight-bold">  Address</p>
+          <p class="mb-4"> {{companyModel.address}} </p>
+
+          <p class="mb-0 font-weight-bold">Phone</p>
+          <p class="mb-4"><a href="#"> {{companyModel.telephonenumber}}</a></p>
+
+          <p class="mb-0 font-weight-bold">Email Address</p>
+          <p class="mb-0"><a href="#">{{companyModel.email}}</a></p>
+
+        </div>
+
+        <div class="p-4 mb-3 bg-white">
+          <div _ngcontent-nyy-c2="" class="top-category text-center no-border-left">
+            <h1 _ngcontent-nyy-c2=""><i _ngcontent-nyy-c2="" class="fas fa-file-code" aria-hidden="true"></i></h1><h3 _ngcontent-nyy-c2="" style="color:#e5474b"> Company Jobs </h3><span _ngcontent-nyy-c2="" class="icon flaticon-contact">
+              
+            </span><p _ngcontent-nyy-c2=""><span _ngcontent-nyy-c2="" class="number">{{PostJobs.length}}</span><span _ngcontent-nyy-c2=""> Open position</span></p></div>
+     
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- {{jobForm.value | json}}
+{{jobModel | json}} -->
+
+<app-footer></app-footer>

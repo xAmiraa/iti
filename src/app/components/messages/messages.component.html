@@ -1,0 +1,32 @@
+<div>
+  <app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<br>
+messaging
+  <div class="messaging">
+    <div class="inbox_msg">
+      <div class="inbox_people">
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4>Recent</h4>
+          </div>
+        </div>
+        <div class="inbox_chat scroll" > 
+          <div class="chat_list"  *ngFor="let comp of company" (click)="readMore(comp)">
+            <div class="chat_people">
+              <h5>{{comp.name}}</h5>
+              <div class="chat_img"> <img src="http://localhost:3000//{{comp.image}}" alt="sunil"> </div>
+              <div class="chat_ib">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+</div>

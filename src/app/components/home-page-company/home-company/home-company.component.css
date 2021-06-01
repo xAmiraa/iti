@@ -1,0 +1,48 @@
+
+/* Make the image fully responsive */
+/* .carousel-inner img {
+    width: 99%;
+    height: 500px;
+} */
+
+.imgcom{
+    border-radius: 50%;
+    width: 50px;
+    /* margin-top: -100px; */
+
+}
+.shadow{
+    z-index:50px ;
+    margin: 20px;
+}
+.title{
+    margin-bottom: 25px;
+}
+.button{
+    margin-bottom: 30px;
+    float: right
+}
+.right{
+    margin-left: 700px;
+    margin-top: 50px;
+}
+.all{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.imgpro{
+    align-items: center;
+    border-radius: 50%;
+    width: 100px;
+    margin: auto;
+}
+.titilename{
+    margin: auto;
+    margin-left: 30%;
+}
+.btnjob{
+    margin-left: 650px;
+}
+.colse{
+    background-color: black;
+}

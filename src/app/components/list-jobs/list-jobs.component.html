@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+list job
+<div class="hero-wrap hero-wrap-2"
+  style=" background-position: 50% 0px;"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-start">
+      <div class="col-md-12 ftco-animate text-center mb-5 fadeInUp ftco-animated">
+        <p class="breadcrumbs mb-0"><span class="mr-3"><a>Home <i class="ion-ios-arrow-forward"></i></a></span>
+          <span>Student's jobs</span></p>
+        <h1 class="mb-3 bread">My JOB</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 pr-lg-4">
+          <div class="job_listing_area plus_padding">
+            <div class="recent_joblist_wrap">
+              <div class="job_lists m-0">
+                <div class="single_jobs white-bg d-flex justify-content-between"
+                  *ngFor="let job of jobs  | filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+                  <div class="jobs_left d-flex align-items-center">
+                    <div class="thumb">
+                      <img style="width: 50px; height: 50px;" src="../../../assets/ITIAN.jpg" alt="">
+                    </div>
+                    <div class="jobs_conetent">
+                      <a>
+                        <h4>{{job[0].title}}</h4>
+                      </a>
+                      <div class="links_locat d-flex align-items-center">
+                        <div class="location">
+                          <p> <i class="fa fa-map-marker"></i> {{job[0].location}}</p>
+                        </div>
+                        <div class="location">
+                          <p> <i class="fa fa-clock-o"></i>{{job[0].type}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="jobs_right">
+                    <div class="apply_now">
+                      <a class="heart_mark" (click)="cancelJob(job)"> <i  class="fa fa-trash"></i> </a>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 sidebar">
+           
+          <div class="sidebar-box bg-white p-4 ftco-animate fadeInUp ftco-animated">
+              <h3 class="heading-sidebar">Search</h3>
+       <div class="search-form mb-3">
+          <div class="form-group">
+            <span class="icon icon-search"></span>
+            <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term" >
+          </div>
+        </div>
+                    
+                  
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section><br/>
+  <pagination-controls (pageChange)="p = $event" style="text-align: center;"></pagination-controls>
+  <app-footer></app-footer>
+
+</div>

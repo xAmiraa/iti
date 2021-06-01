@@ -1,0 +1,103 @@
+<app-navbar-company></app-navbar-company>
+student profile supmmited
+<!-- background-image: url(&quot;images/bg_1.jpg&quot;); -->
+<div class="hero-wrap hero-wrap-2"
+  style=" background-position: 50% 0px;"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-start">
+      <div class="col-md-12 ftco-animate text-center mb-5 fadeInUp ftco-animated">
+        <p class="breadcrumbs mb-0"><span class="mr-3"><a>Home <i class="ion-ios-arrow-forward"></i></a></span>
+          <span>Student's profile</span></p>
+        <h1 class="mb-3 bread">Hire Student</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section ftco-candidates ftco-candidates-2 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 pr-lg-4">
+        <div class="row">
+
+
+          <!-- ngfor -->
+          <div class="col-md-12" *ngFor="let student of students  | filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+            <div class="team d-md-flex p-4 bg-white">
+              <div class="img" >
+                <img style="width: 100px; height: 100px;" src="http://localhost:3000//{{student[0].image}}" alt="">
+            </div>
+              <div class="text pl-md-4">
+                <span class="location mb-0">
+                  {{student[0].location}}</span>
+                <h2>{{student[0].name}} </h2>
+                <h4>{{student[0].title}}</h4>
+                <span class="position"> {{student[0].age + "Years"}} </span>
+                <br>
+                <span class="position"> {{student[0].position}} </span>
+                <p class="mb-2"> {{student[0].about}}</p>
+                <span class="seen"><a href="#">{{student[0].email}}</a></span>
+                <br>
+                <span class="seen">{{student[0].availability}} </span>
+
+                <p><a  class="btn btn-primary"(click)="seeProfile(student[0])">See Profile</a></p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <!-- pagenition -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 sidebar">
+        <div class="sidebar-box bg-white p-4 ftco-animate fadeInUp ftco-animated">
+          <h3 class="heading-sidebar">search</h3>
+          <div class="search-form mb-3">
+            <div class="form-group">
+              <span class="icon icon-search"></span>
+              <input type="text" class="form-control" placeholder="Search..."  [(ngModel)]="term">
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="sidebar-box bg-white p-4 ftco-animate fadeInUp ftco-animated">
+          <div _ngcontent-nyy-c2="" class="top-category text-center no-border-left">
+            <h1 _ngcontent-nyy-c2=""><i _ngcontent-nyy-c2="" class="fas fa-file-code" aria-hidden="true"></i></h1><h3 _ngcontent-nyy-c2="" style="color:#e5474b"> Company Jobs </h3><span _ngcontent-nyy-c2="" class="icon flaticon-contact">
+
+            </span><p _ngcontent-nyy-c2=""><span _ngcontent-nyy-c2="" class="number">{{jobs.length}}</span><span _ngcontent-nyy-c2=""> Open position</span></p></div>
+
+
+
+        </div>
+
+        <!-- <div class="sidebar-box bg-white p-4 ftco-animate fadeInUp ftco-animated"> -->
+
+          <div class="sidebar-box bg-white p-4 ftco-animate fadeInUp ftco-animated">
+
+            <div _ngcontent-nyy-c2="" class="top-category text-center no-border-left"><h1 _ngcontent-nyy-c2=""><i _ngcontent-nyy-c2=""class="fas fa-user-friends" aria-hidden="true"></i></h1><h3 _ngcontent-nyy-c2="" style="color:#e5474b"> Applied Student </h3><span _ngcontent-nyy-c2="" class="icon flaticon-contact"></span><p _ngcontent-nyy-c2=""><span _ngcontent-nyy-c2="" class="number">{{students.length}}</span><span _ngcontent-nyy-c2=""> student</span></p></div>
+          </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<pagination-controls (pageChange)="p = $event" style="text-align: center;"></pagination-controls>
+<app-footer></app-footer>
+
+
+
+
+
+

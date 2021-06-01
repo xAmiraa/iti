@@ -1,0 +1,79 @@
+<app-navbar-company></app-navbar-company>
+home page company
+<div class="container-fluid">
+  <div class="row">
+    <br><br>
+    <br>
+    <br>
+    
+    <div class="col-sm-12">
+      <div class="card shadow">
+        
+        <br><br>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card shadow">
+        <img class="card-img-top imgpro" src="http://localhost:3000//{{pro.image}}"  alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title titilename">{{pro.name}}</h4>
+
+        </div>
+      </div>
+      <div class="card shadow">
+
+        <div class="card-body">
+
+          <p class="card-text">{{pro.careerobjrctive}}</p>
+
+        </div>
+      </div>
+      <div class="card shadow">
+
+        <div class="card-body">
+
+          <p class="card-text">{{pro.content}}</p>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+    </div>
+      <div class="card shadow" *ngFor="let job of jobs | filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+        <div class="card-body">
+          <h4 class="card-title">{{job. title}}</h4>
+          <p class="card-text">{{job.desc}} </p>
+          <div class="button">
+            <button type="button"class="btn btn-danger" (click)="deletJob(job)">Delete</button>
+          </div>
+          <div class="button">
+            <button type="button"class="btn btn-primary" (click)="onSelect(job)">See More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card-body shadow" *ngFor="let event of envents">
+        <h3>
+          {{event.titel}}
+        </h3>
+        <p class="card-text"> {{event.title}}</p>
+        <p class="card-text"> {{event.place}}</p>
+        <p class="card-text"> {{event.date}}</p>
+
+
+      </div>
+    </div>
+
+  </div><br>
+  <pagination-controls (pageChange)="p = $event" style="text-align: center;"></pagination-controls>
+</div>
+  <app-footer></app-footer>

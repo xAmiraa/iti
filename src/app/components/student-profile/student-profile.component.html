@@ -1,0 +1,184 @@
+<app-navbar></app-navbar>
+student profile
+<div class="profile-page">
+  <div class="page-header header-filter" data-parallax="true"
+    style="background-image:url('../../../../assets/images/black-and-white-city-night.png');">
+  </div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="profile">
+              <div class="avatar">
+                <img
+                src="http://localhost:3000//{{studentModel.image}}" 
+
+                  alt="Circle Image" class="rounded-circle img-raised">
+              </div>
+
+              <div class="name">
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 " style="margin: 50px;">
+          
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <form #studentForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="modal-title">Contact Info</h5>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="UserName" id="name" name="name"
+                      [(ngModel)]="studentModel.name" #name="ngModel">
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Age" id="age" name="age"
+                      [(ngModel)]="studentModel.age" #age="ngModel">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter email" id="email" name="email"
+                      [(ngModel)]="studentModel.email" #email="ngModel">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter type job" id="email" name="position"
+                      [(ngModel)]="studentModel.position" #position="ngModel">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter location" id="email" name="location"
+                      [(ngModel)]="studentModel.location" #location="ngModel">
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Enter Telephone Number" name="phone"
+                      pattern="^\d{11}$" [(ngModel)]="studentModel.phone" #phone="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="modal-title">About</h5>
+                  <div class="form-group">
+                    <textarea class="form-control" rows="7" id="comment" name="about" [(ngModel)]="studentModel.about"
+                      #about="ngModel"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5 class="modal-title">Profession</h5>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="studentModel.title"
+                      #title="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h5 class="modal-title">English Level</h5>
+                  <div class="form-group">
+                    <select class="form-control" id="englishLevel" name="englishLevel"
+                      [(ngModel)]="studentModel.englishLevel" #englishLevel="ngModel">
+                      <option>basice</option>
+                      <option>professional</option>
+                      <option>expert</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h5 class="modal-title">Availability /h</h5>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="availability" name="availability"
+                      [(ngModel)]="studentModel.availability" #availability="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h5 class="modal-title">Rate $</h5>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="rate"
+                      [(ngModel)]="studentModel.rate" #rate="ngModel" name="rate" >
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="modal-title">Experience</h5>
+                  <div class="form-group">
+                    <textarea type="text" class="form-control" id="experience" name="experience"
+                      [(ngModel)]="studentModel.experience" #experience="ngModel"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="modal-title">Skills</h5>
+                  <div class="form-group">
+                    <textarea type="text" class="form-control" id="skills" name="skills" [(ngModel)]="studentModel.skills"
+                      #skills="ngModel"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-6">
+                  <h5 class="modal-title">Project Link</h5>
+                  <div class="form-group">
+                    <textarea type="text" class="form-control" id="workLink" name="workLink"
+                      [(ngModel)]="studentModel.workLink" #workLink="ngModel"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="modal-title">Certifications</h5>
+                  <div class="form-group">
+                    <textarea type="number" class="form-control" id="number" name="certifications" role="2"
+                      [(ngModel)]="studentModel.certifications" #certifications="ngModel"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-7">
+                  <h5 class="modal-title">Education</h5>
+                  <div class="form-group">
+
+                    <input type="text" class="form-control" id="text" name="university"
+                      [(ngModel)]="studentModel.university" #university="ngModel" placeholder="university">
+                    <br>
+
+                    <input type="text" class="form-control" id="text" name="faculty" [(ngModel)]="studentModel.faculty"
+                      #faculty="ngModel" placeholder="faculty">
+                    <br>
+
+                    <input type="date" class="form-control" id="text" name="graduationYear" placeholder="graduationYear"
+                      [(ngModel)]="studentModel.graduationYear" #graduationYear="ngModel">
+                  </div>
+
+                </div>
+                <div class="col-md-5">
+                  <h5 class="modal-title">MyBio</h5>
+                  <div class="form-group">
+                    <textarea type="text" class="form-control" id="Bio" rows="7" name="Bio"
+                      [(ngModel)]="studentModel.Bio" #Bio="ngModel"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label for="exampleFormControlInput1"><h5>Profile Image</h5></label>
+                <input class="form-control" type="file" name="image" required
+                
+                 (change)="onfileSelected($event)" >
+                 
+              </div>
+              <strong class="text-danger" [class.d-none]="test">Please Select Image </strong>
+
+              <div class="row" style="margin: 50px;">
+                <button type="submit"  class="btn btn-danger" style="margin: auto;">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<!-- {{studentModel | json}} -->
+<app-footer></app-footer>
